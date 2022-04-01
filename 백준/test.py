@@ -1,7 +1,5 @@
-import sys
-input = sys.stdin.readline
-
 n = int(input())
-for i in range(n):
-    a, b = map(int, input().split())
-    print(a+b)
+cnt = 0
+while n != cnt:
+    cnt += 1
+    print(cnt)
