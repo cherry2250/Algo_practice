@@ -1,5 +1,6 @@
+import sys
+input=sys.stdin.readline
+
 t = int(input())
-for tc in range(t):
-    n = int(input())
-    arr = list(map(int, input().split()))
-    print(sum(arr))
+arr = [list(input()) for _ in range(t)]
+print(arr)
