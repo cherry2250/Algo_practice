@@ -1,4 +1,3 @@
-T = int(input())
-arr = list(map(int, input().split()))
-ans = arr.set()
-print(len(arr) - len(ans))
+n = int(input())
+for i in range(n):
+    print('*'*(n-i))
