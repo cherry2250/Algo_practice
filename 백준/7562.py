@@ -15,6 +15,7 @@ def bfs(now_x, now_y):
         if a == p_x and b == p_y:
             break
         
+        #방향탐색
         for i in range(8):
             nx = a + dx[i]
             ny = b + dy[i]
