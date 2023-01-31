@@ -12,13 +12,16 @@ def solution(numbers):
     answer = str(m_num)
     return answer
 
-#틀림.. 
+#정답 코드
 def solution(numbers):
-    answer = ''
-    numbers = list(map(str, numbers)) #문자열로 변환한다음에 정렬
-    numbers.sort(reverse=True)
-    for i in numbers :
-        answer += (i)
-    return answer
-
-    
+    arr = []
+    for i in numbers:
+        a = str(i)
+        arr.append(a)
+    arr.sort(key=lambda x: x * 3, reverse=True)
+    ans = ''
+    for i in range(len(arr)):
+        ans += arr[i]
+    if int(ans) == 0:
+        ans = '0'
+    return ans # return str(int(''.join(arr)))
