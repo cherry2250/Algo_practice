@@ -1,5 +1,4 @@
-import sys
-input = sys.stdin.readline
+from sys import stdin
 
 def binary_serch(array, target, start, end):
     while start <= end :
@@ -24,9 +23,9 @@ def binary_serch(array, target, start, end):
     
     return None
 
-N = int(input())
-card = sorted(list(map(int, input().split())))
-M = int(input())
+N = int(stdin.readline())
+card = sorted(list(map(int, stdin.readline().split())))
+M = int(stdin.readline())
 tar = list(map(int, input().split()))
 ans = []
 for i in tar :
