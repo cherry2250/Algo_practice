@@ -1,26 +1,17 @@
-alpha = ['=c', 'c-', 'dz=', 'd-', 'lj', 'nj', 's=', 'z=']
-check = list(input())
-cnt = 0
-while check :
-    for i in range(len(check) -1):
-        if check[i] == 'd' and check[i+1] =='z':
-            if i <= len(check) -2 and check[i+2] == '=':
-                cnt += 1
-                check.pop(0)
-                check.pop(0)
-                check.pop(0)
-                break
-        elif check[i] + check[i+1] in alpha :
-            check.pop(0)
-            check.pop(0)
-            cnt += 1
-            break
-        else :
-            cnt += 1
-            check.pop(0)
-            break
-    if len(check) == 1 :
-        cnt += 1
-        check.pop(0)
-
-print(cnt)
+import sys
+input = sys.stdin.readline.rstrip()
+#index 에러 남
+x = input()
+y = len(x)
+cro_al = ['c=','c-','dz=','d-','lj','nj','s=','z=']
+for i in range(0, len(x)):
+    if len(x) < 2:
+        y = len(x)
+    elif len(x) == 2:
+        if (x[i-2] + x[i-1]) in cro_al:
+            y = 1
+    elif (x[i-3]+x[i-2]+x[i-1]) in cro_al:
+        y -= 2
+    elif (x[i-2] + x[i-1]) in cro_al:
+        y -= 1
+print(y)
