@@ -1,6 +1,3 @@
-import sys
-input = sys.stdin.readline.rstrip()
-#index 에러 남
 x = input()
 y = len(x)
 cro_al = ['c=','c-','dz=','d-','lj','nj','s=','z=']
