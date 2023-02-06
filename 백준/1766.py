@@ -26,5 +26,4 @@ while queue:
         if inDegree[i] == 0:
             heapq.heappush(queue, i)
 
-
 print(" ".join(map(str, answer)))
