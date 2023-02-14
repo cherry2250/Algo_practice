@@ -13,7 +13,7 @@ for i in a:
         break
 
 
-    height = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+height = [0, 0, 0, 0, 0, 0, 0, 0, 0]
 flag = 0
 for i in range(9):
     h = int(input())
