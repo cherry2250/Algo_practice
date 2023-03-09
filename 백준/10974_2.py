@@ -12,4 +12,4 @@ def dfs():
             temp.pop()
 
 
-dfs( )
+dfs()
