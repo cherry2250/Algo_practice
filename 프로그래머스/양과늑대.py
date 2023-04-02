@@ -18,7 +18,7 @@ def solution(info, edges):
                 visited[c] = 0
 
 	# 루트 노드부터 시작
-	visited[0] = 1
+    visited[0] = 1
     dfs(1, 0)
 
     return max(answer)
