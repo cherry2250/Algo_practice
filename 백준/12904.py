@@ -7,7 +7,7 @@ T = list(input().strip())
 while T:
     if T==S:
         print(1)
-        sys.exit()
+        sys.exit() #조건 부합 -> 프로그램 아예 종료해버림
 
     if T[-1]=='A': # 마지막이 A이면
         T.pop() #삭제
