@@ -1,7 +1,6 @@
 from itertools import combinations
 from bisect import bisect_left
 
-
 def solution(info, query):
     answer = []
     info_dict = {}
