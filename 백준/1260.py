@@ -1,31 +1,39 @@
-def dfs(v):
-    print(v, end=' ')
-    visit[v] = 1
-    for i in range(1, n + 1):
-        if visit[i] == 0 and s[v][i] == 1:
-            dfs(i)
+from collections import deque
 
-def bfs(v):
-    queue = []
-    queue.append(v)
-    visit[v] = 0 #dfs 돌았으니까
-    while(queue):
-        v = queue[0]
-        print(v, end=' ')
-        queue.pop(0)
-        for i in range(1, n + 1):
-            if visit[i] == 1 and s[v][i] == 1:
-                queue.append(i)
-                visit[i] = 0
+N, M, V = list(map(int, input().split()))
+matrix = [[0]*(N+1) for i in range(N+1)]
 
-n, m, v = map(int, input().split())
-s = [[0] * (n + 1) for _ in range(n + 1)]
-visit = [0] * (n + 1)
-for _ in range(m):
-    x, y = map(int, input().split())
-    s[x][y] = 1
-    s[y][x] = 1
-    
-dfs(v)
+#방문한곳체크기록할 리스트
+visited_dfs = [0]*(N+1)
+visited_bfs = [0]*(N+1)
+
+# 입력받는 값에 대해 영형렬에 1삽입(인접리스트생성)
+for i in range(M):
+  a,b=map(int,input().split())
+  matrix[a][b]=matrix[b][a]=1
+
+def dfs(V):
+  visited_dfs[V]=1
+  print(V,end=' ')
+  #재귀
+  for i in range(1, N+1):
+    if(visited_dfs[i]==0 and matrix[V][i]==1):
+      dfs(i)
+
+def bfs(V):
+  #방문해야할 곳을 순서대로 넣을 큐
+  queue=deque([V])
+  visited_bfs[V]=1
+  
+  #큐안에 데이터없을때까지
+  while queue:
+    V=queue.popleft()
+    print(V, end=' ')
+    for i in range(1, N+1):
+      if(visited_bfs[i]==0 and matrix[V][i]==1):
+        queue.append(i)
+        visited_bfs[i]=1
+
+dfs(V)
 print()
-bfs(v)
+bfs(V)
