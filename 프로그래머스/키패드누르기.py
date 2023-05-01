@@ -1,36 +1,36 @@
 def solution(numbers, hand):
     answer = ''
     left, right = [1, 4, 7], [3, 6, 9]
-    n_left, n_right = 0, 0
-    right_hand = ['#']
-    left_hand = ['*']
+    n_left, n_right = 10, 12
+    l_distance, r_distance = 0, 0
     for i in numbers:
         if i in left:
             answer += 'L'
             n_left = i
-            left_hand.append(n_left)
+
         elif i in right:
             answer += 'R'
             n_right = i
-            right_hand.append(n_right)
+
         else:
-            if abs(i-n_left) > abs(i-n_right):
-                answer += 'R'
+            if i == 0 :
+                i = 11
+            
+            l_distance = abs(i - n_left)
+            r_distance = abs(i - n_right)
+
+            if  sum(l_distance // 3 + l_distance % 3) > sum(r_distance // 3 + r_distance % 3):
                 n_right = i
-                right_hand.append(n_right)
-            elif abs(i-n_left) < abs(i-n_right):
-                answer += 'L'
+                answer += 'R'
+            elif sum(l_distance // 3 + l_distance % 3) < sum(r_distance // 3 + r_distance % 3):
                 n_left = i
-                left_hand.append(n_left)
-            else :
-                print('여기옴', hand)
+                answer += 'L'
+            else:
                 if hand == 'right':
-                    answer += 'R'
                     n_right = i
-                    right_hand.append(n_right)
-                else :
-                    answer += 'L'
-                    n_left = i            
-                    left_hand.append(n_left)
-    print(right_hand, left_hand)   
+                    answer += 'R'
+                else:
+                    n_left = i
+                    answer += 'L'      
+
     return answer

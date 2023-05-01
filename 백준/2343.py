@@ -4,8 +4,8 @@ input = sys.stdin.readline
 n, m = map(int, input().split())
 video = list(map(int, input().split()))
 
-vm = max(video)
-start = vm
+#left는 동영상 길이의 최솟값 right는 동영상 길이의 최댓값
+start = max(video)
 end = sum(video)
 
 res = 10**9
@@ -26,7 +26,7 @@ while(start <= end):
         start = mid+1
     else:
         end = mid-1
-        if(mid >= vm):
+        if(mid >= start):
             res = min(res, mid)
 
 print(res)
