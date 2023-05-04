@@ -1,9 +1,11 @@
 def solution(msg):
     answer = []
+
     alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     dic = dict(zip(alphabet, range(1, 27)))
     print(dic)
-    w = c = 0 # 인덱스 초기화
+
+    w, c = 0, 0
     while True:
         c += 1	
         if c == len(msg):	
